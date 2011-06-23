@@ -27,6 +27,9 @@ http://katzueno.com/
 I'm looking for your feedback! Please contact me at
 http://katzueno.com/ or @katz515 on twitter.
 
+Plug-in Support Page
+Plugin URI: http://katzueno.com/wordpress/twitcasting-status/
+
 == Installation ==
 
 How to install
