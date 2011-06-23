@@ -30,15 +30,17 @@ http://katzueno.com/ or @katz515 on twitter.
 Plug-in Support Page
 Plugin URI: http://katzueno.com/wordpress/twitcasting-status/
 
+
 == Installation ==
 
-How to install
-
-e.g.
+How to install and use it
 
 1. Upload `twitcasting-status` folder to the `/wp-content/plugins/` directory
 1. Activate the plugin through the 'Plugins' menu in WordPress
-1. Go to `Theme` - `Widget` and set up your Twitcasting ID and select images
+1. Create Twitcasting account (if you haven't done so)
+1. Upload two (2) images which indicates online and offline status
+1. Go to `Theme` - `Widget` and set up your Twitcasting ID and enter the image URLs
+1. Save
 
 == Frequently Asked Questions ==
 
