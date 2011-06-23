@@ -5,7 +5,7 @@ Plugin URI: http://katzueno.com/wordpress/twitcasting-status/
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=TYQTWQ7QGN36J
 Author: Katz Ueno
 Author URI: http://katzueno.com/
-Tags: livecasting, status, twitcasting
+Tags: livecasting, status, twitcasting, twitter, facebook
 License: GPL2
 Requires at least: 2.8.0
 Tested up to: 3.1.3
@@ -15,11 +15,17 @@ Display the online/offline status of your twitcasting.
 
 == Description ==
 
-Enter your desired Twitcasting (Twitter) ID, and it will fetch the online/offline status. Then it will display the online/offline status image.
+"Twitcasting Status" is a widget plug-in to display the live/offline status of your desired Twitcasting channel, using your desired image.
 
-Check out the demo at (althought you only see it when I'm live.)
+Enter your desired Twitcasting (Twitter) ID, and it will fetch the online/offline status. Then it will display the online/offline status image of your choice.
+
+Twitcasting is the light-weight easy live casting service from your iPhone or Android using your Twitter or Facebook login. No registration is required. You can start the live casting right away.
+
+Check out the demo at (although you only see it when I'm live.)
 http://katzueno.com/
 
+I'm looking for your feedback! Please contact me at
+http://katzueno.com/ or @katz515 on twitter.
 
 == Installation ==
 
