@@ -17,6 +17,9 @@ Display the online/offline status of your twitcasting.
 
 Enter your desired Twitcasting (Twitter) ID, and it will fetch the online/offline status. Then it will display the online/offline status image.
 
+Check out the demo at (although you only see it when I'm live.)
+http://katzueno.com/
+
 
 == Installation ==
 
@@ -36,7 +39,7 @@ In addition to WordPress, you need sign-up for Twitcasting.tv.
 
 = How do I sign up for Twitcasting? =
 
-Click LOGIN icon from Twitcasting.tv and login using your Twitter account
+Click LOGIN icon from Twitcasting.tv using your Twitter account
 
 = I don't have any images =
 
