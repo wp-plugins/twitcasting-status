@@ -6,7 +6,8 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Author: Katz Ueno
 Author URI: http://katzueno.com/
 Tags: livecasting, status, twitcasting
-Requires at least: 2.0.2
+License: GPL2
+Requires at least: 2.8.0
 Tested up to: 3.1.3
 Stable tag: 0.9.0
 
@@ -49,11 +50,11 @@ You need to make your own images. I may make preset later.
 
 == Changelog ==
 
-= 0.9 =
-* The initial version
+= 0.9.0 =
+* The initial version. This is in beta but it should work ok.
 
 == Upgrade Notice ==
 
-= 0.9 =
+= 0.9.0 =
 
 Just replace the existing files when upgrading.

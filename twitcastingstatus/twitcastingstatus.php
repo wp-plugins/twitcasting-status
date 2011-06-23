@@ -1,11 +1,14 @@
 <?php
 /*
+Contributors: katz515
 Plugin Name: Twitcasting Status
-Plugin URI: http://en.katzueno.com/twitcastingstatus
+Plugin URI: http://katzueno.com/wordpress/twitcasting-status/
+Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=TYQTWQ7QGN36J
 Description: Display the online/offline status of your twitcasting.
 Version: 0.9.0
 Author: Katz Ueno
 Author URI: http://katzueno.com/
+Tags: livecasting, status, twitcasting
 License: GPL2
 */
 
@@ -77,7 +80,10 @@ class wp_twitcasting_status extends WP_Widget {
 		// ==============================
 		// Twitcasting Status starts here
 		// ==============================
-		$TwitcastingStatusJson = file_get_contents('http://api.twitcasting.tv/api/livestatus?type=jason&user=' . $account );
+		$opt = stream_context_create(array(
+		'http' => array( 'timeout' => 3 )
+		));
+		$TwitcastingStatusJson = @file_get_contents('http://api.twitcasting.tv/api/livestatus?type=jason&user=' . $account ,0,$opt);
 		// For DEBUG
 		// echo '<!--' . $TwitcastingStatusJson . '-->';
 		// Decode JSON
