@@ -9,9 +9,9 @@ Tags: livecasting, status, twitcasting, twitter, facebook
 License: GPL2
 Requires at least: 2.8.0
 Tested up to: 3.1.3
-Stable tag: 0.9.0
+Stable tag: 0.9.1
 
-Display the online/offline status of your twitcasting.
+Display the online/offline status of your Twitcasting.
 
 == Description ==
 
@@ -24,8 +24,8 @@ Twitcasting is the light-weight easy live casting service from your iPhone or An
 Check out the demo at (although you only see it when I'm live.)
 http://katzueno.com/
 
-I'm looking for your feedback! Please contact me at
-http://katzueno.com/ or @katz515 on twitter.
+I'm looking for your feedback! Please contact me via my website
+or @katz515 on twitter.
 
 Plug-in Support Page
 Plugin URI: http://katzueno.com/wordpress/twitcasting-status/
@@ -63,11 +63,18 @@ You need to make your own images. I may make preset later.
 
 == Changelog ==
 
+= 0.9.1 =
+* Fixing the file structure
+
 = 0.9.0 =
 * The initial version. This is in beta but it should work ok.
 
 == Upgrade Notice ==
 
+= 0.9.1 =
+
+If you've installed 0.9.0, you may have to move the files from `/wp-content/plugins/twitcasting-status/twitcastingstatus/` to `/wp-content/plugins/twitcasting-status/` manually using FTP. This is the mistake from the author who didn't get used to their SVN system. Sorry about that.
+
 = 0.9.0 =
 
-Just replace the existing files when upgrading.
+This is initial version.
