@@ -4,7 +4,7 @@ Contributors: katz515
 Plugin Name: Twitcasting Status
 Plugin URI: http://katzueno.com/wordpress/twitcasting-status/
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=TYQTWQ7QGN36J
-Description: Display the online/offline status of your twitcasting.
+Description: Display the online/offline status of a Twitcasting channel.
 Version: 1.0.0
 Author: Katz Ueno
 Author URI: http://katzueno.com/
@@ -35,10 +35,10 @@ class wp_twitcasting_status extends WP_Widget {
 	// ============================================================
 	function wp_twitcasting_status () {
 		$widget_ops = array(
-        'description' => _e('Display Twitcasting online status')
+        'description' => 'Display Twitcasting online status'
 	);
-	parent::WP_Widget(false, $name = _e('Twitcasting Status'),$widget_ops);
-}
+	parent::WP_Widget(false, $name = 'Twitcasting Status' ,$widget_ops);
+	}
  
 	// ============================================================
     // Form
@@ -104,7 +104,7 @@ class wp_twitcasting_status extends WP_Widget {
 			// For DEBUG
 			// echo '<!--' . $TwitcastingStatusJson . '-->';
 			// Decode JSON
-		if (function_exists(json_decode))
+		if (function_exists(json_decode)) {
 			if ($TwitcastingStatusSerial->{'islive'}) {
 				// If live
 				?>
@@ -118,8 +118,8 @@ class wp_twitcasting_status extends WP_Widget {
 				<img src="<?php echo $offline; ?>" alt="<?php _e('Offline'); ?>" />
 				</a></div>
 				<?php }
-		} else{
-			echo _e('There is no JSON support on your server. Please contact your administrator.')
+		} else {
+			echo _e('There is no JSON support on your server. Please contact your administrator.');
 		}
 		// ==============================
 		// Twitcasting Status ends here

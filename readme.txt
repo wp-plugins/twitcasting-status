@@ -9,17 +9,17 @@ Tags: livecasting, status, twitcasting, twitter, facebook
 License: GPL2
 Requires at least: 2.8.0
 Tested up to: 3.1.3
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 
-Display the online/offline status of your Twitcasting.
+Display the online/offline status of a Twitcasting channel.
 
 == Description ==
 
-"Twitcasting Status" is a widget plug-in to display the live/offline status of your desired Twitcasting channel, using your desired image.
+"Twitcasting Status" is a widget plug-in to display the live/offline status of a Twitcasting channel, using the images.
 
-Enter your desired Twitcasting (Twitter) ID, and it will fetch the online/offline status. Then it will display the online/offline status image of your choice.
+Enter a Twitcasting (Twitter) ID, and it will fetch the online/offline status. Then it will display the online/offline status images of your choice.
 
-Twitcasting is the light-weight easy live casting service from your iPhone or Android using your Twitter or Facebook login. No registration is required. You can start the live casting right away.
+Twitcasting is the light-weight easy live casting service from your iPhone or Android using your Twitter or Facebook login. No registration is required. You can start the live cast right away.
 
 Check out the demo at (although you only see it when I'm live.)
 http://katzueno.com/
@@ -29,6 +29,9 @@ or @katz515 on twitter.
 
 Plug-in Support Page
 http://katzueno.com/wordpress/twitcasting-status/
+
+Also check out my other WordPress plugins
+http://katzueno.com/wordpress/
 
 
 == Installation ==
@@ -78,7 +81,7 @@ If you're still having problem getting the status, you can think of the followin
 - You mistyped your Twistcasting ID (Twitter ID)
 - You mistyped the wrong URL of images
 - Twitcasting Server may be having some problem.
-- Your WordPress server may be blocked from Twitcasting Server
+- Your WordPress server may be blocked by Twitcasting Server
 
 
 
@@ -89,6 +92,10 @@ If you're still having problem getting the status, you can think of the followin
 1. Twitcasting Status in action
 
 == Changelog ==
+
+= 1.0.1 =
+
+* fixed the bug that not showing the Twitcasting title
 
 = 1.0.0 = 
 
@@ -101,6 +108,10 @@ If you're still having problem getting the status, you can think of the followin
 * The initial version. This is in beta but it should work ok.
 
 == Upgrade Notice ==
+
+= 1.0.1 =
+
+Fixed minor bug. Added cache so that the large scale WordPress site can now enjoy the live status. Twitcasting Status is now calling once per min. Your status may remain online/offline max. 1 min.
 
 = 1.0.0 =
 
