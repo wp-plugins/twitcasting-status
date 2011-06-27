@@ -90,7 +90,7 @@ If you're still having problem getting the status, you can think of the followin
 
 == Changelog ==
 
-= 0.9.2 = 
+= 1.0.0 = 
 
 * Adding the cache (by using Transient API)
 
@@ -102,7 +102,7 @@ If you're still having problem getting the status, you can think of the followin
 
 == Upgrade Notice ==
 
-= 0.9.2 =
+= 1.0.0 =
 
 Added cache so that the large scale WordPress site can now enjoy the live status. Twitcasting Status is now calling once per min. Your status may remain online/offline max. 1 min.
 
