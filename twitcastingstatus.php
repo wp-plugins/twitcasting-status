@@ -5,10 +5,10 @@ Plugin Name: Twitcasting Status
 Plugin URI: http://katzueno.com/wordpress/twitcasting-status/
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=TYQTWQ7QGN36J
 Description: Display the online/offline status of your twitcasting.
-Version: 0.9.1
+Version: 1.0.0
 Author: Katz Ueno
 Author URI: http://katzueno.com/
-Tags: livecasting, status, twitcasting
+Tags: livecasting, status, twitcasting, twitter, facebook
 License: GPL2
 */
 
@@ -30,7 +30,9 @@ License: GPL2
 
 class wp_twitcasting_status extends WP_Widget {
  
-	//Constructer
+	// ============================================================
+	// Constructer
+	// ============================================================
 	function wp_twitcasting_status () {
 		$widget_ops = array(
         'description' => _e('Display Twitcasting online status')
@@ -38,7 +40,9 @@ class wp_twitcasting_status extends WP_Widget {
 	parent::WP_Widget(false, $name = _e('Twitcasting Status'),$widget_ops);
 }
  
-    //Add
+	// ============================================================
+    // Form
+	// ============================================================
     function form( $instance ) {
 		//Reading the existing data from $instance
 		$instance = wp_parse_args( (array) $instance, array( 'account' => 'YokosoNews', 'online' => '', 'offline' => '') );
@@ -56,17 +60,21 @@ class wp_twitcasting_status extends WP_Widget {
     <?php    }
  
  
-    // Edit
+	// ============================================================
+    // Update
+	// ============================================================
     function update( $new_instance, $old_instance ) {
     // Old Instance and New instance
     		$instance = $old_instance;
-    		$instance['account'] = strip_tags( $new_instance['account'] );
+    		$instance['account'] = preg_replace("#^.*/([^/]+)/?$#",'${1}',$args['account']);
     		$instance['online'] = strip_tags( $new_instance['online'] );
     		$instance['offline'] = strip_tags( $new_instance['offline'] );
     return $instance;    
     }
  
+	// ============================================================
 	// View
+	// ============================================================
 	function widget( $args, $instance ) {
 
 		extract($args);
@@ -80,37 +88,56 @@ class wp_twitcasting_status extends WP_Widget {
 		// ==============================
 		// Twitcasting Status starts here
 		// ==============================
-		$opt = stream_context_create(array(
-		'http' => array( 'timeout' => 3 )
-		));
-		$TwitcastingStatusJson = @file_get_contents('http://api.twitcasting.tv/api/livestatus?type=jason&user=' . $account ,0,$opt);
-		// For DEBUG
-		// echo '<!--' . $TwitcastingStatusJson . '-->';
-		// Decode JSON
-		if (function_exists(json_decode)){ 
-			$TwitcastingStatusSerial = json_decode($TwitcastingStatusJson);
-			if ($TwitcastingStatusSerial->{'islive'})
-				{ ?>
+		// TRANSIENT STARTS HERE
+		if ( false === ( $TwitcastingStatusSerial = get_transient( 'wp_twitcasting_status' ) ) ) {
+			if (function_exists(json_decode)){
+				// It wasn't there, so regenerate the data and save the transient
+				$opt = stream_context_create(array(
+					'http' => array( 'timeout' => 3 )
+				));
+				$TwitcastingStatusJson = @file_get_contents('http://api.twitcasting.tv/api/livestatus?type=jason&user=' . $account ,0,$opt);
+				$TwitcastingStatusSerial = json_decode($TwitcastingStatusJson);
+				set_transient( 'wp_twitcasting_status', $TwitcastingStatusSerial, 60 );
+			}
+		}
+		// TRANSIENT ENDS HERE
+			// For DEBUG
+			// echo '<!--' . $TwitcastingStatusJson . '-->';
+			// Decode JSON
+		if (function_exists(json_decode))
+			if ($TwitcastingStatusSerial->{'islive'}) {
+				// If live
+				?>
 				<div align="center"><a href="http://twitcasting.tv/<?php echo $account;?>" alt="<?php _e('Click here to visit the Twitcasting page'); ?>" target="_blank">
 				<img src="<?php echo $online; ?>" alt="<?php _e('Live now'); ?>" target="_blank" />
-					</a></div>
-				<?php } else { ?>
-					<div align="center"><a href="http://twitcasting.tv/<?php echo $account;?>" alt="<?php _e('Click here to visit the Twitcasting page'); ?>" target="_blank">
-					<img src="<?php echo $offline; ?>" alt="<?php _e('Offline'); ?>" />
-					</a></div>
+				</a></div>
+			<?php } else {
+				// If not live, including when the API does not respond
+				?>
+				<div align="center"><a href="http://twitcasting.tv/<?php echo $account;?>" alt="<?php _e('Click here to visit the Twitcasting page'); ?>" target="_blank">
+				<img src="<?php echo $offline; ?>" alt="<?php _e('Offline'); ?>" />
+				</a></div>
 				<?php }
-			}
-			// ==============================
-			// Twitcasting Status ends here
-			// ==============================
-			 echo $after_widget; 
+		} else{
+			echo _e('There is no JSON support on your server. Please contact your administrator.')
 		}
+		// ==============================
+		// Twitcasting Status ends here
+		// ==============================
+		echo $after_widget; 
+	}
 }
 
+// ============================================================
+// Registering plug-ins
+// ============================================================
 function wpTwitcastingStatusInit() {
     // Registering class name
     register_widget('wp_twitcasting_status');
 }
-//execute wpTwitcastingStatusInit()
+
+// ============================================================
+// execute wpTwitcastingStatusInit()
+// ============================================================
 add_action('widgets_init', 'wpTwitcastingStatusInit');
 ?>

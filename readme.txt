@@ -9,7 +9,7 @@ Tags: livecasting, status, twitcasting, twitter, facebook
 License: GPL2
 Requires at least: 2.8.0
 Tested up to: 3.1.3
-Stable tag: 0.9.1
+Stable tag: 1.0.0
 
 Display the online/offline status of your Twitcasting.
 
@@ -28,32 +28,59 @@ I'm looking for your feedback! Please contact me via my website
 or @katz515 on twitter.
 
 Plug-in Support Page
-Plugin URI: http://katzueno.com/wordpress/twitcasting-status/
+http://katzueno.com/wordpress/twitcasting-status/
+
 
 == Installation ==
 
 How to install and use it
 
-1. Upload `twitcasting-status` folder to the `/wp-content/plugins/` directory
+1. Upload `twitcasting-status` folder to the `/wp-content/plugins/` directory or you can install from admin panel directly.
 1. Activate the plugin through the 'Plugins' menu in WordPress
 1. Create Twitcasting account (if you haven't done so)
 1. Upload two (2) images which indicates online and offline status
 1. Go to `Theme` - `Widget` and set up your Twitcasting ID and enter the image URLs
 1. Save
 
+This plugin uses cache. You may have to wait for 60 seconds until you see the channel becomes live or offline. Please be patient!
+
+
 == Frequently Asked Questions ==
 
 = What do I need? =
 
-In addition to WordPress, you need sign-up for Twitcasting.tv.
+In addition to WordPress site, you need to sign-up at Twitcasting.tv and start live casting.
 
 = How do I sign up for Twitcasting? =
 
-Click LOGIN icon from Twitcasting.tv using your Twitter account
+Click LOGIN icon from Twitcasting.tv using your Twitter or Facebook account
 
-= I don't have any images =
+= I don't have any images for offline/online images =
 
-You need to make your own images. I may make preset later.
+You need to make your own images. I may make preset later if you ask me so.
+
+= I'm live. But my status won't change. =
+
+First, wait for 60 seconds. Twitcasting Status uses cache. It only check the live/offline status once a min.
+
+If you don't see the change os status after 60 seconds you become live, you may have misspelled your Twitcasting ID, your WordPress site may be having hard time reaching Twitcasting Server, or your IP may be blocked from Twitcasting Server.
+
+= How can I check if Twitcasting server is working or not? =
+
+In order to check if Twitcasting service itself is working or not, you could directly ping their server by going to
+
+http://api.twitcasting.tv/api/livestatus?type=jason&user=XXXXXXXXXXX
+
+Replace the last "X" to your account ID (e.g., YokosoNews) when you're live. You should be able to see "islive":true in your browser.
+
+If you're still having problem getting the status, you can think of the following situation
+
+- You mistyped your Twistcasting ID (Twitter ID)
+- You mistyped the wrong URL of images
+- Twitcasting Server may be having some problem.
+- Your WordPress server may be blocked from Twitcasting Server
+
+
 
 == Screenshots ==
 
@@ -63,6 +90,10 @@ You need to make your own images. I may make preset later.
 
 == Changelog ==
 
+= 0.9.2 = 
+
+* Adding the cache (by using Transient API)
+
 = 0.9.1 =
 * Fixing the file structure
 
@@ -70,6 +101,10 @@ You need to make your own images. I may make preset later.
 * The initial version. This is in beta but it should work ok.
 
 == Upgrade Notice ==
+
+= 0.9.2 =
+
+Added cache so that the large scale WordPress site can now enjoy the live status. Twitcasting Status is now calling once per min. Your status may remain online/offline max. 1 min.
 
 = 0.9.1 =
 
