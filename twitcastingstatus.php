@@ -84,7 +84,7 @@ class wp_twitcasting_status extends WP_Widget {
         
         echo $before_widget;
 		if ( $account )
-		echo $before_title . _e('Twitcasting Status') . $after_title;
+		echo $before_title . 'Twitcasting Status' . $after_title;
 		// ==============================
 		// Twitcasting Status starts here
 		// ==============================
