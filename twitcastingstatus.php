@@ -66,7 +66,7 @@ class wp_twitcasting_status extends WP_Widget {
     function update( $new_instance, $old_instance ) {
     // Old Instance and New instance
     		$instance = $old_instance;
-    		$instance['account'] = preg_replace("#^.*/([^/]+)/?$#",'${1}',$args['account']);
+    		$instance['account'] = preg_replace("#^.*/([^/]+)/?$#",'${1}',$new_instance['account']);
     		$instance['online'] = strip_tags( $new_instance['online'] );
     		$instance['offline'] = strip_tags( $new_instance['offline'] );
     return $instance;    
