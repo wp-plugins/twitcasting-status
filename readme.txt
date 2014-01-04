@@ -8,7 +8,7 @@ Author URI: http://katzueno.com/
 Tags: livecasting, status, twitcasting, twitter, facebook
 License: GPL2
 Requires at least: 2.8.0
-Tested up to: 3.1.3
+Tested up to: 3.8
 Stable tag: 1.0.1
 
 Display the online/offline status of a Twitcasting channel.
