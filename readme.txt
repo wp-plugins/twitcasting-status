@@ -8,14 +8,14 @@ Author URI: http://katzueno.com/
 Tags: livecasting, status, twitcasting, twitter, facebook
 License: GPL2
 Requires at least: 2.8.0
-Tested up to: 3.8
-Stable tag: 1.0.1
+Tested up to: 4.3
+Stable tag: 2.0.0
 
 Display the online/offline status of a Twitcasting channel.
 
 == Description ==
 
-"Twitcasting Status" is a widget plug-in to display the live/offline status of a Twitcasting channel, using the images.
+"Twitcasting Status" is a widget and shortcode plug-in to display the live/offline status of a Twitcasting channel, using the images.
 
 Enter a Twitcasting (Twitter) ID, and it will fetch the online/offline status. Then it will display the online/offline status images of your choice.
 
@@ -26,6 +26,9 @@ http://katzueno.com/
 
 I'm looking for your feedback! Please contact me via my website
 or @katz515 on twitter.
+
+Fork me on GitHub. Pull Requests are always welcome!
+https://github.com/katzueno/TwitcastingStatus-WordPress
 
 Plug-in Support Page
 http://katzueno.com/wordpress/twitcasting-status/
@@ -38,12 +41,34 @@ http://katzueno.com/wordpress/
 
 How to install and use it
 
+= Installation =
+
 1. Upload `twitcasting-status` folder to the `/wp-content/plugins/` directory or you can install from admin panel directly.
 1. Activate the plugin through the 'Plugins' menu in WordPress
+
+= Preparation =
+
 1. Create Twitcasting account (if you haven't done so)
 1. Upload two (2) images which indicates online and offline status
+
+= Create a widget =
+
 1. Go to `Theme` - `Widget` and set up your Twitcasting ID and enter the image URLs
 1. Save
+
+= Insert a shortcode =
+
+Enter the shortcode as following format
+
+[twitcasting-status channel="Account Name" online="Online Image URL" offline="Offline Image URL"]
+
+- Account Name: Enter the channel name (Or you can enter the full URL of a Twitcasting page)
+- Online Image URL: Enter the full path to the online image.
+- Offline Image URL: Enter the full path to the online image.
+
+Shortcode Example:
+
+[twitcasting-status channel="yokosonews" online="http://example.com/yokoso_online.gif" offline="http://example.com/yokoso_offline.gif"]
 
 This plugin uses cache. You may have to wait for 60 seconds until you see the channel becomes live or offline. Please be patient!
 
@@ -93,11 +118,17 @@ If you're still having problem getting the status, you can think of the followin
 
 == Changelog ==
 
+= 2.0.0 =
+
+* Added the support multiple accounts to display their status.
+* Added the support for shortcode.
+* Tested up to Version 4.3
+
 = 1.0.1 =
 
 * fixed the bug that not showing the Twitcasting title
 
-= 1.0.0 = 
+= 1.0.0 =
 
 * Adding the cache (by using Transient API)
 
@@ -108,6 +139,11 @@ If you're still having problem getting the status, you can think of the followin
 * The initial version. This is in beta but it should work ok.
 
 == Upgrade Notice ==
+
+= 2.0.0 =
+
+* Added the support multiple accounts to display their status.
+* Added the support for shortcode.
 
 = 1.0.1 =
 
