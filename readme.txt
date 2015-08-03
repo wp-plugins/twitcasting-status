@@ -60,7 +60,7 @@ How to install and use it
 
 Enter the shortcode as following format
 
-[twitcasting-status channel="Account Name" online="Online Image URL" offline="Offline Image URL"]
+[twitcasting-status account="Account Name" online="Online Image URL" offline="Offline Image URL"]
 
 - Account Name: Enter the channel name (Or you can enter the full URL of a Twitcasting page)
 - Online Image URL: Enter the full path to the online image.
@@ -68,7 +68,7 @@ Enter the shortcode as following format
 
 Shortcode Example:
 
-[twitcasting-status channel="yokosonews" online="http://example.com/yokoso_online.gif" offline="http://example.com/yokoso_offline.gif"]
+[twitcasting-status account="yokosonews" online="http://example.com/yokoso_online.gif" offline="http://example.com/yokoso_offline.gif"]
 
 This plugin uses cache. You may have to wait for 60 seconds until you see the channel becomes live or offline. Please be patient!
 
